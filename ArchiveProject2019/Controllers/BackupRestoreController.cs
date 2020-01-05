@@ -20,7 +20,7 @@ namespace ArchiveProject2019.Controllers
       
         [AccessDeniedAuthorizeattribute(ActionName = "BackupRestoreIndex")]
 
-        public ViewResult Index(string Id="none")
+        public ViewResult BackupRestoreIndex(string Id="none")
         {
             ViewBag.Current = "Backup";
 
@@ -75,7 +75,7 @@ namespace ArchiveProject2019.Controllers
             }
             catch
             {
-              return  RedirectToAction("Index", new { Id = "BackupDbError" });
+              return  RedirectToAction("BackupRestoreIndex", new { Id = "BackupDbError" });
             }
           
 
@@ -94,7 +94,7 @@ namespace ArchiveProject2019.Controllers
 
             if(BackupFile==null)
             {
-                return RedirectToAction("Index", new { Id = "RestoreDbNullError" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "RestoreDbNullError" });
 
 
                 
@@ -102,7 +102,7 @@ namespace ArchiveProject2019.Controllers
 
             if(!BackupFile.FileName.EndsWith("BAK",StringComparison.OrdinalIgnoreCase))
             {
-                return RedirectToAction("Index", new { Id = "RestoreDbErrorType" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "RestoreDbErrorType" });
 
             }
             string FileName = Path.GetFileName(BackupFile.FileName);
@@ -221,14 +221,14 @@ namespace ArchiveProject2019.Controllers
                 {
                     System.IO.File.Delete(path);
                 }
-                return RedirectToAction("Index",new { Id= "RestoreDbError" });
+                return RedirectToAction("BackupRestoreIndex",new { Id= "RestoreDbError" });
 
 
 
             }
 
 
-            return RedirectToAction("Index",new { Id= "RestoreDbSuccess" });
+            return RedirectToAction("BackupRestoreIndex",new { Id= "RestoreDbSuccess" });
         }
 
 
@@ -276,7 +276,7 @@ namespace ArchiveProject2019.Controllers
             }
             catch
             {
-                return RedirectToAction("Index", new { Id = "BackupFilesError" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "BackupFilesError" });
 
             }
         }
@@ -296,7 +296,7 @@ namespace ArchiveProject2019.Controllers
 
             if (BackupFile == null)
             {
-                return RedirectToAction("Index", new { Id = "RestoreFilesNullError" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "RestoreFilesNullError" });
 
 
 
@@ -304,7 +304,7 @@ namespace ArchiveProject2019.Controllers
 
             if (!BackupFile.FileName.EndsWith("ZIP", StringComparison.OrdinalIgnoreCase))
             {
-                return RedirectToAction("Index", new { Id = "RestoreFilesErrorType" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "RestoreFilesErrorType" });
 
             }
 
@@ -352,7 +352,7 @@ namespace ArchiveProject2019.Controllers
                     System.IO.File.Delete(path);
                 }
 
-                return RedirectToAction("Index", new { Id = "RestoreFilesSuccess" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "RestoreFilesSuccess" });
 
             }
             catch 
@@ -363,7 +363,7 @@ namespace ArchiveProject2019.Controllers
                 {
                     System.IO.File.Delete(path);
                 }
-                return RedirectToAction("Index", new { Id = "RestoreFilesError" });
+                return RedirectToAction("BackupRestoreIndex", new { Id = "RestoreFilesError" });
 
 
             }
