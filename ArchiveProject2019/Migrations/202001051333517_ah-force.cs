@@ -3,7 +3,7 @@ namespace ArchiveProject2019.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialModel : DbMigration
+    public partial class ahforce : DbMigration
     {
         public override void Up()
         {
@@ -167,7 +167,7 @@ namespace ArchiveProject2019.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.CreatedById)
-                .ForeignKey("dbo.Departments", t => t.DepartmentId, cascadeDelete: false)
+                .ForeignKey("dbo.Departments", t => t.DepartmentId, cascadeDelete: true)
                 .ForeignKey("dbo.Documents", t => t.DocumentId, cascadeDelete: true)
                 .Index(t => t.DocumentId)
                 .Index(t => t.DepartmentId)
@@ -205,7 +205,7 @@ namespace ArchiveProject2019.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.CreatedById)
-                .ForeignKey("dbo.Departments", t => t.DepartmentId, cascadeDelete: true)
+                .ForeignKey("dbo.Departments", t => t.DepartmentId, cascadeDelete: false)
                 .ForeignKey("dbo.DocumentStatus", t => t.StatusId, cascadeDelete: true)
                 .ForeignKey("dbo.Parties", t => t.PartyId)
                 .ForeignKey("dbo.Forms", t => t.FormId, cascadeDelete: true)

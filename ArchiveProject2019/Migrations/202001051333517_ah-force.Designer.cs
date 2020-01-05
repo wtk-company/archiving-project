@@ -7,13 +7,13 @@ namespace ArchiveProject2019.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initialModel : IMigrationMetadata
+    public sealed partial class ahforce : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ahforce));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001051244478_initialModel"; }
+            get { return "202001051333517_ah-force"; }
         }
         
         string IMigrationMetadata.Source
